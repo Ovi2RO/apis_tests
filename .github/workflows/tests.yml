@@ -8,6 +8,16 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        shell: /usr/bin/bash --login
+        working-directory: ${{ github.workspace }}
+        path: ${{ github.workspace }}/.github/actions/
+        shell: /usr/bin/bash --login {0}
+    env:
+      PYTHON_VERSION: "3.9"
+      NODE_VERSION: "16.x"
 
     steps:
       - name: Set up Python environment
